@@ -4,53 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Feira das Profissões</title>
+    <title>Cadastro - Feira das Profissões</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script> <!-- Adiciona o script -->
 </head>
 <body>
 
     <header>
-        <h1>Future</h1>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo Future" class="logo">
+        </div>
         <p>Encontre sua vocação, descubra faculdades e muito mais!</p>
     </header>
+    
 
-    <nav>
-        <a href="faculdades.html">Faculdades</a>
-        <a href="concursos.html">Concursos</a>
-        <a href="teste-vocacional.html">Teste Vocacional</a>
-        <a href="login.html">Login</a>
-    </nav>
-
-    <div class="container">
-        <div class="section-title">
-            <h2>Explore as Faculdades e Concursos</h2>
-        </div>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar faculdades, cursos...">
-            <button>Buscar</button>
-        </div>
-
-        <div class="content-section">
-            <div class="content-box">
-                <h3>Faculdades</h3>
-                <p>Encontre faculdades que oferecem os cursos que você deseja.</p>
+    <div class="signup-container">
+        <h2>Cadastro</h2>
+        <form action="process_cadastro.php" method="POST">
+            <div class="input-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required>
             </div>
-            <div class="content-box">
-                <h3>Notas de Corte</h3>
-                <p>Veja as últimas notas de corte para os principais cursos do país.</p>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="content-box">
-                <h3>Concursos</h3>
-                <p>Saiba quais concursos exigem a formação desejada.</p>
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
             </div>
-            <div class="statistics">
-                <h2>Estatísticas de Interesse</h2>
-                <p>68% dos alunos estão interessados em carreiras na área de tecnologia.</p>
-                <p>O curso de Medicina é o mais procurado, com 45% dos candidatos.</p>
+            <div class="input-group">
+                <label for="confirm-password">Confirme sua Senha:</label>
+                <input type="password" id="confirm-password" name="confirm_password" required>
             </div>
-            
-        </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
     </div>
 
     <footer>
