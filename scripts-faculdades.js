@@ -15,3 +15,6 @@ document.querySelectorAll('.nota-btn').forEach(button => {
         cursosDiv.style.display = cursosDiv.style.display === "none" || cursosDiv.style.display === "" ? "block" : "none";
     });
 });
+function voltar() {
+    window.location.href = 'inicio.html'; // Redireciona para a página inicial
+}

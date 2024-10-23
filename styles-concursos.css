@@ -52,10 +52,38 @@ header p {
     font-size: 1.2em;
     color: #013220;
 }
-
-/* Estilo para os links dos botões */
+#voltarBtn {
+    position: fixed;       /* Fixa o botão na tela */
+    top: 10px;             /* Distância do topo da tela */
+    left: 10px;            /* Distância da borda esquerda da tela */
+    padding: 5px 10px;     /* Tamanho do botão, com padding reduzido */
+    background-color: #013220; /* Verde suave */
+    color: white;
+    border: none;
+    border-radius: 50%;    /* Deixa o botão redondo */
+    font-weight: bold;
+    font-size: 14px;       /* Tamanho de fonte ajustado */
+    cursor: pointer;
+    z-index: 1000;         /* Garante que o botão ficará acima de outros elementos */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efeito de sombra */
+    width: 200px;           /* Largura ajustada para um botão menor */
+    height: 40px;          /* Altura ajustada para garantir o formato circular */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center;     /* Centraliza o conteúdo verticalmente */
+    font-size: 20px;
+}
+/* Efeito de hover */
+#voltarBtn:hover {
+    background-color: #013220;  /* Cor do fundo mais escura */
+    transform: translateY(-2px);  /* Levanta o botão levemente */
+}
+/* Estilo do botão */
 .btn-link {
-    display: inline-block;
+    display: inline-flex; /* Flexbox para centralizar o conteúdo */
+    justify-content: center; /* Alinha horizontalmente */
+    align-items: center; /* Alinha verticalmente */
     padding: 10px 20px;
     color: white;
     background-color: #007B5F; /* Verde suave */
@@ -64,12 +92,24 @@ header p {
     font-weight: bold;
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 600px; /* Defina uma largura fixa ou use min-width */
+    height: 30px; /* Altura fixa para garantir uniformidade */
+    text-align: center; /* Centraliza o texto horizontalmente */
 }
 
+/* Efeito ao passar o mouse (hover) */
+.btn-link:hover {
+    background-color: #00684A;             /* Cor de fundo mais escura */
+    transform: translateY(-2px);           /* Levanta o botão levemente */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+/* Efeito de hover */
 .btn-link:hover {
     background-color: #005f4d; /* Verde mais escuro */
     transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
 }
+
 
 /* Estilo para o rodapé */
 footer {
@@ -81,3 +121,4 @@ footer {
     width: 100%;
     bottom: 0;
 }
+

@@ -38,3 +38,7 @@ document.getElementById("teste-vocacional").addEventListener("submit", function(
     document.getElementById("mensagem-resultado").innerText = resultado;
     document.getElementById("resultado").style.display = "block";
 });
+function voltar() {
+    window.location.href = 'inicio.html'; // Redireciona para a página inicial
+}
+

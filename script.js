@@ -35,7 +35,7 @@ function fazerLogin(event) {
         if (usuario.senha === senha) {
             alert(`Bem-vindo, ${usuario.nome}!`);
             // Redireciona para a página inicial (index.html)
-            window.location.href = "index.html"; // Aqui redireciona para a página inicial
+            window.location.href = "inicio.html"; // Aqui redireciona para a página inicial
         } else {
             alert("Senha incorreta. Tente novamente.");
         }
@@ -76,4 +76,87 @@ document.addEventListener("DOMContentLoaded", function () {
     if (esqueceuSenhaBtn) {
         esqueceuSenhaBtn.addEventListener("click", recuperarSenha);
     }
+});
+// Aguardando o carregamento do DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Capturando o botão e adicionando o evento de clique
+    document.getElementById('search-button').addEventListener('click', buscarConcurso);
+});
+
+function buscarConcurso() {
+    // Obtendo o valor da pesquisa (em minúsculo para tornar a busca insensível a maiúsculas/minúsculas)
+    var pesquisa = document.getElementById("pesquisa").value.toLowerCase();
+
+    // Mapeamento de concursos e links
+    var concursos = {
+        "inss 2024": "https://www.inss.gov.br/concursos",
+        "banco do brasil": "https://www.bb.com.br/pbb/concursos",
+        "polícia federal": "https://www.pf.gov.br/concursos",
+        "correios": "https://www.correios.com.br/concursos"
+    };
+
+    // Verifica se a pesquisa corresponde a algum concurso
+    if (concursos[pesquisa]) {
+        window.location.href = concursos[pesquisa]; // Redireciona para o link correspondente
+    } else {
+        alert("Concurso não encontrado! Tente novamente.");
+    }
+}
+// Lista de concursos
+const concursos = {
+    "inss 2024": "https://www.cebraspe.org.br/concursos/",
+    "banco do brasil": "https://www.cesgranrio.org.br/concursos/",
+    "polícia federal": "https://www.cebraspe.org.br/concursos/",
+    "correios": "https://www.cesgranrio.org.br/concursos/"
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('pesquisa');
+    const searchButton = document.getElementById('search-button');
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    // Evento de digitação na barra de pesquisa
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.toLowerCase();
+        // Filtra os concursos que correspondem à pesquisa
+        const filteredConcursos = Object.keys(concursos).filter(c => c.toLowerCase().includes(query));
+
+        // Limpa a lista de sugestões antes de adicionar novos itens
+        suggestionsContainer.innerHTML = '';
+
+        // Adiciona sugestões se houver correspondências
+        if (filteredConcursos.length > 0 && query) {
+            filteredConcursos.forEach(function(concurso) {
+                const suggestion = document.createElement('div');
+                suggestion.classList.add('suggestion');
+                suggestion.textContent = concurso;
+                suggestion.addEventListener('click', function() {
+                    searchInput.value = concurso;
+                    suggestionsContainer.innerHTML = '';  // Limpa as sugestões ao clicar em uma
+                    buscarConcurso(concurso);
+                });
+                suggestionsContainer.appendChild(suggestion);
+            });
+        }
+    });
+
+    // Quando clicar no botão de pesquisa
+    searchButton.addEventListener('click', function() {
+        buscarConcurso(searchInput.value);
+    });
+});
+
+// Função de busca
+function buscarConcurso(query) {
+    query = query.toLowerCase(); // Normaliza a pesquisa para minúsculas
+
+    if (concursos[query]) {
+        window.location.href = concursos[query]; // Redireciona para o concurso correspondente
+    } else {
+        alert("Concurso não encontrado! Tente novamente.");
+    }
+}
+document.getElementById('voltarBtn').addEventListener('click', function() {
+    // Redireciona para a página inicial
+    window.location.href = 'inicio.html'; // Ou qualquer outro caminho que você deseje
 });
